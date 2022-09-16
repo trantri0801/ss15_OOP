@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Temperature {
+        constructor(value) {
+            this.value = value;
+        }
+        getCtoF (){
+            return this.value * 1.8 + 32;
+        }
+        getCtoK (){
+            return this.value + 273.15
+        }
+    }
+    let temp = parseInt(prompt("Nhập vào giá trị độ C"));
+    let temperature = new Temperature(temp);
+    document.writeln("<br>" + temp + " độ C bằng " + temperature.getCtoF() + " độ F");
+    document.writeln("<br>" + temp + " độ C bằng " + temperature.getCtoK() + " độ K");
+</script>
+</html>
