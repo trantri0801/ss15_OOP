@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10;
+        }
+        getCheckApple (){
+            if (this.weight > 0)
+                return true ;
+            else
+                return false;
+        }
+        getDownApple (){
+            this.weight--;
+        }
+        getReturnApple (){
+            return this.weight;
+        }
+    }
+
+    class Human {
+        constructor(name, sex , weight ) {
+            this.name = name;
+            this.sex = sex;
+            this.weight = weight;
+        }
+        getCheckSex (){
+            if (this.sex === "Nam")
+                return true;
+            else return false;
+        }
+        checkHuman (name){
+            console.log(name.getHumanSex());
+        }
+        getHumanSex (){
+            return this.sex;
+        }
+        getWeight (){
+            return this.weight;
+        }
+        sayText (text){
+            console.log(text);
+        }
+        getEatApple(apple){
+            if (apple.getCheckApple() == true){
+                this.weight++;
+                apple.getDownApple()
+            }
+        }
+        CheckApple(apple){
+            if (apple.getCheckApple() == true){
+               return apple.getReturnApple();
+            }
+        }
+        information(){
+            console.log(this.name+ "," + this.sex + "," + this.weight);
+        }
+    }
+    let QuaTao = new Apple();
+    console.log("Khối lượng quả táo mới tạo: " + QuaTao.getReturnApple())
+    let Adam = new Human("Adam", "Nam",28);
+    let Eva = new Human("Eva", "Nữ", 26);
+    console.log("Adam là Nam giới : " + Adam.getCheckSex());
+    console.log("Eva là Nam giới : " + Eva.getCheckSex());
+    Adam.sayText("Ăn táo đi em?");
+    Eva.sayText("Không á");
+    Eva.getEatApple(QuaTao);
+    console.log("Miếng táo còn lại: " + Eva.CheckApple(QuaTao))
+    Adam.getEatApple(QuaTao);
+    Adam.getEatApple(QuaTao);
+    Eva.getEatApple(QuaTao);
+    Adam.getEatApple(QuaTao);
+    console.log(Adam.getWeight())
+    console.log(Eva.getWeight())
+    console.log("Quả táo còn: " + QuaTao.getReturnApple());
+    Eva.information()
+    Adam.information()
+    Adam.checkHuman(Eva)
+</script>
+</html>
