@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="https://www.w3schools.com/js/pic_bulboff.gif" id="Lamp" />
+<button id="switch" onclick="Click()">TurnOff/TurnOn</button>
+<br>
+<div id="text"></div>
+</body>
+<script>
+    class SwitchButton {
+        constructor(status) {
+            this.status = status;
+        }
+        ChangeTurnOn_TurnOff(){
+            this.status = !this.status;
+        }
+    }
+    class ElectricLamp {
+        constructor(button) {
+            this.button = button;
+        }
+        switch(){
+            if (this.button.status){
+                document.getElementById("Lamp").src = "https://www.w3schools.com/js/pic_bulbon.gif";
+                document.getElementById("text").innerHTML = "Bóng đèn đang sáng";
+            } else {
+                document.getElementById("Lamp").src = "https://www.w3schools.com/js/pic_bulboff.gif";
+                document.getElementById("text").innerHTML = "Bóng đèn đang tắt";
+            }
+        }
+    }
+    let switchButton1 = new SwitchButton(false);
+    let lamp = new ElectricLamp(switchButton1);
+    
+    function Click() {
+        switchButton1.ChangeTurnOn_TurnOff();
+        lamp.switch();
+    }
+</script>
+</html>
